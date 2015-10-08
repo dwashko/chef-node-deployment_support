@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+  vagrantfiles:
+    - test/files/VagrantAdditional.rb
+
+provisioner:
+  name: chef_zero
+  data_bags_path: ./test/fixtures/data_bags
+
+platforms:
+  - name: centos-6.6
+
+suites:
+  - name: default
+    data_bags_path: test/integration/data_bags
+    run_list:
+      - recipe[node-deployment_support::service]
+    attributes:
+      node-deployment:
+        name: test
+        user: root
+        start_application: cat 
+        app_root_directory: /tmp
+        start_command: /etc/redhat-release
+        stop_command: /etc/redhat-release
