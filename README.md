@@ -1,6 +1,6 @@
 # node-deployment_support-cookbook
 
-This is the support cookbook for node applications. This cookbook sets up an init.d script to start and stop any node application. Testing of the service should be done in hte role cookbook. The test in this cookbook is simply generic. 
+This is the support cookbook for node applications. This cookbook includes recipes to control node applciations. Currently there is a recipe for controlling node applications using npm via a sysvinit script. . Testing of the service should be done in the role cookbook. The test in this cookbook is simply generic. 
 ## Supported Platforms
 
 RedHat Platforms are supported. Does not currently implement systemd, so only sysvinit.
@@ -27,9 +27,9 @@ RedHat Platforms are supported. Does not currently implement systemd, so only sy
     <td><tt></tt></td>
   </tr>
   <tr>
-    <td><tt>['node-deployment']['start_application']</tt></td>
+    <td><tt>['node-deployment']['npm_application']</tt></td>
     <td>String</td>
-    <td>should be set in role cookbook. Path to application that will be used to start node application</td>
+    <td>should be set in role cookbook. Path to npm binary for applications using npm</td>
     <td><tt>/usr/bin/npm</tt></td>
   </tr>
   <tr>
@@ -56,12 +56,12 @@ RedHat Platforms are supported. Does not currently implement systemd, so only sy
 
 ### node-deployment_support::default
 
-Include `node-deployment_support::service` in your node's `run_list`:
+Include `node-deployment_support::npmservice` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[node-deployment_support::service]"
+    "recipe[node-deployment_support::npmservice]"
   ]
 }
 ```

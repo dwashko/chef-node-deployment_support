@@ -1,6 +1,8 @@
 #
 # Cookbook Name:: node-deployment_support
-# Recipe:: service
+# Recipe:: npmservice
+#
+# Description: This recipe is used to control a node application using npm
 #
 # Copyright (C) 2015 YOUR_NAME
 #
@@ -8,14 +10,14 @@
 #
 
 template "/etc/init.d/#{node['node-deployment']['name']}" do
-  source 'node-app-init.erb'
+  source 'npm-app-init.erb'
   owner 'root'
   group 'root'
   mode '0755'
   variables(
     :user => node['node-deployment']['user'],
     :node_application => node['node-deployment']['name'],
-    :start_application => node['node-deployment']['start_application'],
+    :npm_application => node['node-deployment']['npm_application'],
     :app_root_directory => node['node-deployment']['app_root_directory'],
     :start_command => node['node-deployment']['start_command'],
     :stop_command => node['node-deployment']['stop_command']

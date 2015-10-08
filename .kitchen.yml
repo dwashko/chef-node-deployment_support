@@ -15,12 +15,12 @@ suites:
   - name: default
     data_bags_path: test/integration/data_bags
     run_list:
-      - recipe[node-deployment_support::service]
+      - recipe[node-deployment_support::npmservice]
     attributes:
       node-deployment:
-        name: test
+        name: test 
         user: root
-        start_application: cat 
         app_root_directory: /tmp
+        npm_application: cat
         start_command: /etc/redhat-release
         stop_command: /etc/redhat-release

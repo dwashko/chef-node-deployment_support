@@ -6,4 +6,3 @@ description      'Installs/Configures node-deployment_support'
 long_description 'Installs/Configures node-deployment_support'
 version          '0.1.0'
 
-depends 'runit'
