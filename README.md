@@ -1,6 +1,6 @@
 # node-deployment_support-cookbook
 
-This is the support cookbook for node applications. This cookbook sets up an init.d script to start and stop any node application. 
+This is the support cookbook for node applications. This cookbook sets up an init.d script to start and stop any node application. Testing of the service should be done in hte role cookbook. The test in this cookbook is simply generic. 
 ## Supported Platforms
 
 RedHat Platforms are supported. Does not currently implement systemd, so only sysvinit.
